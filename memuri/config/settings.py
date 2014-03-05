@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import urlparse
 from os.path import join
 
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings

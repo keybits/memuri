@@ -13,7 +13,7 @@ class Tag(models.Model):
         verbose_name_plural = u'tags'
         ordering = ['name']
 
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
 
@@ -41,7 +41,7 @@ class Bookmark(models.Model):
         verbose_name_plural = u'bookmarks'
         ordering = ['-date_created']
 
-    def __str__(self):
+    def __unicode__(self):
         return u'%s (%s)' % (self.title, self.url)
 
     def save(self, *args, **kwargs):

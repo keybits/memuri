@@ -389,12 +389,12 @@ class Production(Common):
     ########## END TEMPLATE CONFIGURATION
 
     ########## CACHING
+    # Only do this here because thanks to django-pylibmc-sasl and pylibmc memcacheify is painful to install on windows.
 
     os.environ['MEMCACHE_SERVERS'] = os.environ.get('MEMCACHIER_SERVERS', '')
     os.environ['MEMCACHE_USERNAME'] = os.environ.get('MEMCACHIER_USERNAME', '')
     os.environ['MEMCACHE_PASSWORD'] = os.environ.get('MEMCACHIER_PASSWORD', '')
 
-    # Only do this here because thanks to django-pylibmc-sasl and pylibmc memcacheify is painful to install on windows.
     CACHES = {
       'default': {
         'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',

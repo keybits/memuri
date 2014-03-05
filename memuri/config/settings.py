@@ -391,7 +391,7 @@ class Production(Common):
     ########## CACHING
     # Only do this here because thanks to django-pylibmc-sasl and pylibmc memcacheify is painful to install on windows.
 
-redis_url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
+redis_url = urllib.parse(os.environ.get('REDISCLOUD_URL'))
 CACHES = {
         'default': {
             'BACKEND': 'redis_cache.RedisCache',

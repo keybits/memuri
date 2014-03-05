@@ -28,4 +28,4 @@ build:
     - script:
         name: run django tests
         code: |
-          python manage.py test
+          python memuri/manage.py test

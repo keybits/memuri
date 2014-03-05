@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from os.path import join
+from urllib.parse import urlparse
 
 # See: http://django-storages.readthedocs.org/en/latest/backends/amazon-S3.html#settings
 try:
@@ -391,7 +392,7 @@ class Production(Common):
     ########## CACHING
     # Only do this here because thanks to django-pylibmc-sasl and pylibmc memcacheify is painful to install on windows.
 
-redis_url = urllib.parse(os.environ.get('REDISCLOUD_URL'))
+redis_url = urlparse(os.environ.get('REDISCLOUD_URL'))
 CACHES = {
         'default': {
             'BACKEND': 'redis_cache.RedisCache',

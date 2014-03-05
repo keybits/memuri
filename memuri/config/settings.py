@@ -393,6 +393,7 @@ class Production(Common):
     CACHES = {
       'default': {
         'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
+        'LOCATION': os.environ.get('MEMCACHIER_SERVERS', ''),
         'TIMEOUT': 500,
         'BINARY': True,
         'OPTIONS': { 'tcp_nodelay': True }

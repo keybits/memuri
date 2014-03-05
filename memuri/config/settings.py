@@ -391,9 +391,12 @@ class Production(Common):
     ########## CACHING
     # Only do this here because thanks to django-pylibmc-sasl and pylibmc memcacheify is painful to install on windows.
     CACHES = {
-        'default': {
-            'BACKEND': 'django_pylibmc.memcached.PyLibMCCache'
-        }
+      'default': {
+        'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
+        'TIMEOUT': 500,
+        'BINARY': True,
+        'OPTIONS': { 'tcp_nodelay': True }
+      }
     }
 
 

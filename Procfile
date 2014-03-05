@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath="$PWD/memuri_project" config.wsgi:application
+web: gunicorn --pythonpath="$PWD/memuri" config.wsgi:application

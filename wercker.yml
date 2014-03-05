@@ -14,7 +14,7 @@ build:
         name: setup virtual environment
 
     - pip-install:
-        requirements_file: "memuri/requirements.txt" # Optional argument.
+        requirements_file: "requirements.txt" # Optional argument.
 
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
@@ -28,4 +28,4 @@ build:
     - script:
         name: run django tests
         code: |
-          python memuri/manage.py test
+          python manage.py test

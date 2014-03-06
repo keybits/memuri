@@ -42,6 +42,6 @@ build:
           python memuri/manage.py test
 
 deploy:
-    steps:
-        - heroku-deploy
-            key-name: herokudeploy
+  steps:
+      - heroku-deploy:
+          key-name: herokudeploy

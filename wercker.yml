@@ -14,7 +14,7 @@ build:
 
         name: set DJANGO_CONFIGURATION to Test
         code: |
-          export DJANGO_SETTINGS_MODULE=memuri/memuri.settings
+          export DJANGO_SETTINGS_MODULE=memuri/config.settings
           export DJANGO_CONFIGURATION=Test
 
     - install-packages:

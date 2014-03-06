@@ -391,20 +391,20 @@ class Production(Common):
 
     ########## CACHING
     # Redis Cache. TODO: make this Django configuration stylee or move it somewhere more appropriate?
+    #CACHE_URL = values.SecretValue(environ_prefix="", environ_name="REDISCLOUD_URL")
+    #CACHES = values.CacheURLValue()
 
-    CACHES = values.CacheURLValue()
-
-#redis_url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
-#CACHES = {
-#        'default': {
-#            'BACKEND': 'redis_cache.RedisCache',
-#            'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
-#            'OPTIONS': {
-#                'PASSWORD': redis_url.password,
-#                'DB': 0,
-#        }
-#    }
-#}
+redis_url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
+CACHES = {
+        'default': {
+            'BACKEND': 'redis_cache.RedisCache',
+            'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
+            'OPTIONS': {
+                'PASSWORD': redis_url.password,
+                'DB': 0,
+        }
+    }
+}
 
 
     ########## END CACHING

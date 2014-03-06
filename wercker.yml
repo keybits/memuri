@@ -43,5 +43,5 @@ build:
 
 deploy:
     steps:
-        - wercker/heroku-deploy@1.0.9
+        - heroku-deploy
             key-name: herokudeploy

@@ -7,6 +7,17 @@ build:
 
   # The steps that will be executed on build
   steps:
+    - script:
+        name: set postgres connection string
+        code: |
+          export WERCKER_POSTGRESQL_URL="postgres://$WERCKER_POSTGRESQL_USERNAME:$WERCKER_POSTGRESQL_PASSWORD@$WERCKER_POSTGRESQL_HOST:$WERCKER_POSTGRESQL_PORT/$WERCKER_POSTGRESQL_DATABASE"
+
+    -script:
+        name: set DJANGO_CONFIGURATION to Test
+        code: |
+          export DJANGO_SETTINGS_MODULE=memuri.settings
+          export DJANGO_CONFIGURATION=Test
+
     - install-packages:
         packages: postgresql-client-9.3
 

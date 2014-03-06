@@ -290,7 +290,7 @@ class Local(Common):
 
     ########## django-debug-toolbar
     MIDDLEWARE_CLASSES = Common.MIDDLEWARE_CLASSES + ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-    INSTALLED_APPS += ('debug_toolbar')
+    INSTALLED_APPS += ('debug_toolbar',)
 
     INTERNAL_IPS = ('127.0.0.1',)
 
@@ -302,7 +302,7 @@ class Local(Common):
 
     ########### ipynb support
 
-    INSTALLED_APPS += ('django_shell_ipynb')
+    INSTALLED_APPS += ('django_shell_ipynb',)
 
     ########### end ipynb support
 

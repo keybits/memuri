@@ -392,7 +392,7 @@ class Production(Common):
     ########## CACHING
     # Redis Cache. TODO: make this Django configuration stylee or move it somewhere more appropriate?
 
-    CACHES = values.CacheURLValue(default=django_cache_url.config())
+    CACHES = values.CacheURLValue()
 
 #redis_url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
 #CACHES = {

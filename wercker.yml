@@ -40,3 +40,8 @@ build:
         name: run django tests
         code: |
           python memuri/manage.py test
+
+deploy:
+    steps:
+        - wercker/heroku-deploy@1.0.9
+            key-name: herokudeploy

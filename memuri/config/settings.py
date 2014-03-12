@@ -22,6 +22,7 @@ except ImportError:
     # TODO: Fix this where even if in Dev this class is called.
     pass
 
+from redisify import redisify
 from configurations import Configuration, values
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -318,7 +319,7 @@ class Test(Common):
     EMAIL_HOST = "localhost"
     EMAIL_PORT = 1025
     EMAIL_BACKEND = values.Value('django.core.mail.backends.console.EmailBackend')
-    ########## End mail settings
+    ########## End mail settings¾
 
     ########## Your local stuff: Below this line define 3rd party libary settings
 
@@ -413,6 +414,7 @@ class Production(Common):
     # Redis Cache. TODO: make this Django configuration stylee or move it somewhere more appropriate?
     #CACHE_URL = values.SecretValue(environ_prefix="", environ_name="REDISCLOUD_URL")
     #CACHES = values.CacheURLValue()
+    CACHES = redisify(default='redis://localhost')
 
 #redis_url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
 #CACHES = {
